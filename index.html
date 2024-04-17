@@ -17,7 +17,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 15px;
         
     }
     .agecalculator{
@@ -33,22 +35,32 @@
         padding: 10px 20px;
         border: none;
         border-radius: 10px;
+        cursor: pointer;
     }
     .date{
         font-size: 20px;
         
     }
+    h1{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        text-decoration: underline;
+    }
 </style>
 <body>
+    <h1>Current Time</h1>
     <div id="clock" class="Clock" onclick="Currenttime()"> 
     </div>
     <br><br>
 
+
+    <h1>Age Calculator</h1>
     <div class="agecalculator" onclick="Agecalculator()">
         <label for="birthday">Enter Your  Birthdate :- </label>&nbsp; &nbsp;
         <input type="date" id="birthday" name="birthday" class="date">&nbsp; &nbsp;
         <br>
-        <button class="btn-age">Calculate Your Age</button>
+        <button class="btn-age" onclick="Agecalculator()">Calculate Your Age</button>
     </div>
 
     <script>
@@ -61,10 +73,13 @@
         setInterval(Currenttime, 1000); 
 
         function Agecalculator(){
-            const  birthday = prompt("Please enter your birth year");
-            let today = new Date();
-
-        }
+            // const  birthday = prompt("Please enter your birth year");
+            // let today = new Date();
+            const birthdayInput = document.getElementById(`birthday`).value;
+            const birthdate = new Date(birthdayInput);
+            console.log(birthdate);
+            const now = new Date();
+        }    
 
     </script>
 </body>
