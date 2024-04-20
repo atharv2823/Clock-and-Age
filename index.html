@@ -61,7 +61,8 @@
         <input type="date" id="birthday" name="birthday" class="date">&nbsp; &nbsp;
         <br>
         <button class="btn-age" onclick="Agecalculator()">Calculate Your Age</button>
-        <h2 id="result">Result</h2>
+        <br>
+        <p id="result">Result</p>
     </div>
 
     <script>
@@ -76,19 +77,22 @@
         function Agecalculator(){
             // const  birthday = prompt("Please enter your birth year");
             // let today = new Date();
-            const birthdayInput = document.getElementById(`birthday`).value;
-            const birthdate = new Date(birthdayInput);
-            console.log(birthdate);
+            const birthDateInput = document.getElementById(`birthday`).value;
+            const birthdate = new Date(birthDateInput);
+            console.log(birthDateInput);
             const now = new Date();
 
-            const montDiff = now.getMonth() - birthdate.getMonth();
+            let age = now.getFullYear() - birthdate.getFullYear();
 
-            if(montDiff >0 || (montDiff === 0 && now.getdate()< birthdate.getdate())){
+            const monthDiff = now.getMonth() - birthdate.getMonth();
+
+            if(monthDiff <0 || (monthDiff === 0 && now.getDate()< birthdate.getDate()))
+            {
                     age --;
             }
 
 
-            let age = now.getFullyear() - birthdate.getFullYear();
+           
 
             document.getElementById(`result`).innerText = `Your age is ${age}` ;
         }    
